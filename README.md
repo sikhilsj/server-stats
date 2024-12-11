@@ -13,4 +13,4 @@ Pull the file "server-stats.sh" to the local linux machine
 
    ./server-stats.sh
 
-pROJECT url : https://roadmap.sh/projects/server-stats
+Project url : https://roadmap.sh/projects/server-stats
