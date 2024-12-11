@@ -6,7 +6,9 @@
 
 get_cpu_stats() {
     echo "CPU Usage:"
-    mpstat | grep -i 'all' | awk '{print "User CPU: " $3 "% | System CPU: " $5 "% | Idle CPU: " $12 "%"}'
+    top -bn1 | grep "Cpu(s)" | \
+    sed "s/.*, *\([0-9.]*\)%* id.*/\1/" | \
+    awk '{print "Total CPU Usage: " 100 - $1 "%"}'
     echo
 }
 
