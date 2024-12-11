@@ -3,6 +3,7 @@
 # This script collects server performance stats and outputs them in a Human readable format.
 
 # Function to get CPU stats
+
 get_cpu_stats() {
     echo "CPU Usage:"
     mpstat | grep -i 'all' | awk '{print "User CPU: " $3 "% | System CPU: " $5 "% | Idle CPU: " $12 "%"}'
@@ -26,6 +27,7 @@ get_disk_stats() {
 }
 
 # Function to get top 5 CPU-consuming processes
+
 get_top_cpu_processes() {
     echo "Top 5 CPU-Consuming Processes:"
     ps aux --sort=-%cpu | head -n 6  # head -n 6 to skip the header row
@@ -33,6 +35,7 @@ get_top_cpu_processes() {
 }
 
 # Function to get top 5 memory-consuming processes
+
 get_top_memory_processes() {
     echo "Top 5 Memory-Consuming Processes:"
     ps aux --sort=-%mem | head -n 6  # head -n 6 to skip the header row
@@ -40,6 +43,7 @@ get_top_memory_processes() {
 }
 
 # Function to check system uptime
+
 get_uptime() {
     echo "System Uptime:"
     uptime -p
@@ -47,6 +51,7 @@ get_uptime() {
 }
 
 # Function to get OS version
+
 get_os_version() {
     echo "OS Version:"
     cat /etc/os-release | grep "PRETTY_NAME" | cut -d "=" -f 2 | tr -d '"'
@@ -54,6 +59,7 @@ get_os_version() {
 }
 
 # Function to get Logged-in users
+
 get_logged_in_users() {
     echo "Logged-In Users:"
     who
@@ -61,6 +67,7 @@ get_logged_in_users() {
 }
 
 # Main execution
+
 echo "----- Server Stats - $(date) -----"
 get_cpu_stats
 get_memory_stats
